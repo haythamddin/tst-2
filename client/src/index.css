@@ -1,0 +1,208 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom Fonts */
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Source Sans 3", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+}
+
+:root {
+  /* Navy #1A2744 - Primary Brand Color */
+  --primary: oklch(0.25 0.05 260); 
+  --primary-foreground: oklch(0.98 0 0);
+  
+  /* Coral #E85D4C - Accent/Action Color */
+  --accent: oklch(0.65 0.18 30);
+  --accent-foreground: oklch(0.98 0 0);
+  
+  /* Background #F7F9FC */
+  --background: oklch(0.985 0.005 260);
+  --surface: oklch(1 0 0);
+  --foreground: oklch(0.25 0.05 260);
+  
+  /* Surface White */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.05 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.05 260);
+  
+  /* Secondary Text #5A6578 */
+  --secondary: oklch(0.96 0.01 260);
+  --secondary-foreground: oklch(0.45 0.03 260);
+  
+  --muted: oklch(0.96 0.01 260);
+  --muted-foreground: oklch(0.55 0.03 260);
+  
+  /* Error Red #E74C3C */
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  /* Border #E1E5EB */
+  --border: oklch(0.92 0.01 260);
+  --input: oklch(0.92 0.01 260);
+  --ring: oklch(0.65 0.18 30); /* Coral ring for focus */
+  
+  /* Chart Colors */
+  --chart-1: oklch(0.65 0.18 30); /* Coral */
+  --chart-2: oklch(0.25 0.05 260); /* Navy */
+  --chart-3: oklch(0.75 0.15 150); /* Green */
+  --chart-4: oklch(0.75 0.15 85); /* Amber */
+  --chart-5: oklch(0.6 0.1 260); /* Light Navy */
+  
+  --radius: 0.75rem;
+  
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.25 0.05 260);
+  --sidebar-accent: oklch(0.96 0.01 260);
+  --sidebar-accent-foreground: oklch(0.25 0.05 260);
+  --sidebar-border: oklch(0.92 0.01 260);
+  --sidebar-ring: oklch(0.65 0.18 30);
+}
+
+.dark {
+  /* Inverted for dark mode if needed, though prototype is light-themed */
+  --background: oklch(0.15 0.05 260);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.2 0.05 260);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.2 0.05 260);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.25 0.05 260);
+  --secondary: oklch(0.25 0.05 260);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.25 0.05 260);
+  --muted-foreground: oklch(0.7 0.03 260);
+  --accent: oklch(0.65 0.18 30);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.05 260);
+  --input: oklch(0.3 0.05 260);
+  --ring: oklch(0.65 0.18 30);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-accent/20 selection:text-accent-foreground;
+    background-image: radial-gradient(circle at 50% 0%, oklch(0.96 0.01 260) 0%, transparent 70%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-primary;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1440px; /* Matched to spec */
+    }
+  }
+  
+  /* Glassmorphism Utility */
+  .glass {
+    @apply bg-white/90 backdrop-blur-md border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+  }
+  
+  .glass-dark {
+    @apply bg-primary/90 backdrop-blur-md border border-white/10 shadow-lg text-white;
+  }
+  
+  /* Custom Animations */
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+}

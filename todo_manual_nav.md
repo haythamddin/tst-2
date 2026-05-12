@@ -1,0 +1,5 @@
+- [ ] Disable auto-advancement in `Processing.tsx` and add "View Results" button
+- [ ] Disable auto-advancement in `Enrichment.tsx` and add "Continue to Export" button
+- [ ] Source unique fashion images for Asset Manager (at least 8 distinct items)
+- [ ] Update `assetManagerData.ts` with new image URLs
+- [ ] Redeploy to GitHub repository "Vortex"
