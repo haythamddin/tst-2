@@ -49,6 +49,9 @@ export default function Upload() {
           <h1 className="text-3xl font-heading font-bold text-primary">
             Insight DXP
           </h1>
+          <h2 className="text-lg font-heading font-semibold text-muted-foreground">
+            Supply chain Intelligence
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Turn supplier PDFs into live product listings in under 6 hours. Visual Intelligence catches errors that pure OCR misses.
           </p>
